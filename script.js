@@ -40,7 +40,7 @@ function extractOrderId(message) {
 
 async function getOrder(orderId) {
 
-    const response = await fetch("data/orders.Json");
+    const response = await fetch("data/orders.json");
 
     const orders = await response.json();
 
