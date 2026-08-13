@@ -29,7 +29,7 @@ function classifyIntent(message) {
 
 
 function extractOrderId(message) {
-    const match = message.toUpperCase().match(/ORD\d{4}/);
+    const match = message.toUpperCase().match(/\bORD\d{4}\b/);
 
     if (match) {
         return match[0];
@@ -37,7 +37,6 @@ function extractOrderId(message) {
 
     return null;
 }
-
 
 async function getOrder(orderId) {
 
