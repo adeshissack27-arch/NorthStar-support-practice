@@ -6,10 +6,11 @@ function classifyIntent(message) {
         text.includes("where is my order") ||
         text.includes("track my order") ||
         text.includes("order status") ||
+        text.includes("what is the status") ||
         text.includes("delivery") ||
         text.includes("tracking") ||
         text.includes("where is my package") ||
-        text.includes("where is my order")
+        text.includes("track")
     ) {
         return "ORDER_STATUS";
     }
@@ -43,7 +44,6 @@ function extractOrderId(message) {
 
 // Look up the order in orders.Json
 async function getOrder(orderId) {
-
     const response = await fetch("data/orders.Json");
 
     const orders = await response.json();
@@ -149,6 +149,5 @@ async function sendMessage() {
         `;
     }
 
-    // Clear input
     input.value = "";
 }
