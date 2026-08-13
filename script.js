@@ -1,7 +1,6 @@
 function classifyIntent(message) {
     const text = message.toLowerCase();
 
-    // Order Status
     if (
         text.includes("where is my order") ||
         text.includes("track my order") ||
@@ -15,7 +14,6 @@ function classifyIntent(message) {
         return "ORDER_STATUS";
     }
 
-    // Returns and Refunds
     if (
         text.includes("return") ||
         text.includes("refund") ||
@@ -30,7 +28,6 @@ function classifyIntent(message) {
 }
 
 
-// Find an order ID such as ORD1001
 function extractOrderId(message) {
     const match = message.toUpperCase().match(/ORD\d{4}/);
 
@@ -42,8 +39,8 @@ function extractOrderId(message) {
 }
 
 
-// Look up the order in orders.Json
 async function getOrder(orderId) {
+
     const response = await fetch("data/orders.Json");
 
     const orders = await response.json();
@@ -67,17 +64,15 @@ async function sendMessage() {
         return;
     }
 
-    // Display customer's message
     chat.innerHTML += `
         <div class="user-message">
             ${message}
         </div>
     `;
 
-    // Determine customer intent
     const intent = classifyIntent(message);
 
-    // ORDER STATUS
+
     if (intent === "ORDER_STATUS") {
 
         const orderId = extractOrderId(message);
@@ -127,20 +122,16 @@ async function sendMessage() {
                 </div>
             `;
         }
-    }
 
-    // RETURNS / REFUNDS
-    else if (intent === "RETURNS_REFUNDS") {
+    } else if (intent === "RETURNS_REFUNDS") {
 
         chat.innerHTML += `
             <div class="bot-message">
                 I can help you with returns and refunds.
             </div>
         `;
-    }
 
-    // UNSUPPORTED
-    else {
+    } else {
 
         chat.innerHTML += `
             <div class="bot-message">
