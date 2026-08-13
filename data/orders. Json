@@ -1,0 +1,30 @@
+[
+    {
+        "order_id": "ORD1001",
+        "product": "Nike Shoes",
+        "status": "Shipped",
+        "tracking_number": "TRK1001",
+        "expected_delivery": "15 August 2026"
+    },
+    {
+        "order_id": "ORD1002",
+        "product": "Samsung Phone",
+        "status": "Processing",
+        "tracking_number": "Not available",
+        "expected_delivery": "18 August 2026"
+    },
+    {
+        "order_id": "ORD1003",
+        "product": "Laptop",
+        "status": "Delivered",
+        "tracking_number": "TRK1003",
+        "expected_delivery": "12 August 2026"
+    },
+    {
+        "order_id": "ORD1004",
+        "product": "Headphones",
+        "status": "Shipped",
+        "tracking_number": "TRK1004",
+        "expected_delivery": "16 August 2026"
+    }
+]
